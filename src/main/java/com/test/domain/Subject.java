@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 //해당 클래스를 DB테이블과 매핑
-@Entity @Getter @Setter
+@Entity @Getter
 //엔티티와 매핑할 테이블을 지정
 @Table(name="subject")
 //파라미터가 없는 기본 생성자 생성
@@ -34,7 +34,7 @@ public class Subject {
         //test테이블의 subject에 있는 값을 test 맵으로 가져오기
         tests.add(test);
         //test리스트의 subject에 해당 subject 적용
-        test.setSubject(this);
-        this.setScore(test.getScore());
+        test.subject(this);
+        this.score = test.getScore();
     }
 }

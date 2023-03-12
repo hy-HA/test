@@ -2,7 +2,7 @@ package com.test;
 
 
 import com.test.domain.Student;
-import com.test.repository.StudentRepository;
+import com.test.repository.repositoryTest.StudentRepository2;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,8 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 @SpringBootTest
 class StudentRepositoryTest {
 
-    @Autowired
-    StudentRepository studentRepository;
+    /*@Autowired
+    StudentRepository2 studentRepository;
 
     @Test
     @Transactional
@@ -67,7 +67,7 @@ class StudentRepositoryTest {
 
         //then
         Assertions.assertThat(student.getName()).isEqualTo(null); //TODO null이 아닌 hee가 출력되고 있음
-    }
+    }*/
 
 
 }

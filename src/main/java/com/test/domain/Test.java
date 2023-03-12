@@ -8,7 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Getter @Setter
+@Getter
 @Table(name="test")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Test {
@@ -29,11 +29,19 @@ public class Test {
     private Subject subject;
 
     //테스트결과
-    public static Test createTest(Student student, Subject subject){
+    public static Test of(Student student, Subject subject){
         Test test = new Test();
-        test.setSubject(subject);
-        test.setStudent(student);
+        test.subject = subject;
+        test.student = student;
         return test;
+    }
+
+    public void student(Student student) {
+        this.student = student;
+    }
+
+    public void subject(Subject subject) {
+        this.subject = subject;
     }
 
 

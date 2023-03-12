@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.util.*;
 
 //해당 클래스를 DB테이블과 매핑
-@Entity @Getter @Setter
+@Entity @Getter
 //엔티티와 매핑할 테이블을 지정
 @Table(name="student")
 //파라미터가 없는 기본 생성자 생성
@@ -28,8 +28,9 @@ public class Student {
     private List<Test> tests = new ArrayList<>();
 
     @Builder
-    public Student(String name){
+    public Student(String name, int score){
         this.name = name;
+        this.score = score;
     }
 
     //연관관계 메서드
@@ -37,15 +38,10 @@ public class Student {
         //test테이블의 student에 있는 값을 test리스트로 가져오기
         tests.add(test);
         //test리스트의 student에 해당 student 적용
-        test.setStudent(this);
+        test.student(this);
         //test리스트의 score에 해당 score 적용
-        this.setScore(test.getScore());
+        this.score = test.getScore();
     }
 
-    //특정 학생의 평균 점수 조회
-    public void searchStudentScore(Long id) {
-
-
-    }
 
 }
